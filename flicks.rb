@@ -73,16 +73,72 @@
 
 
 
-def weekday
+# def weekday
+#   current_time = Time.new
+#   today = current_time.strftime("%A")
+# end
+#
+# def movie_listing(title, rank=0)
+#   "#{weekday.upcase}: #{title.capitalize} has rank of #{rank}."
+# end
+#
+# puts movie_listing("Rambo", 10)
+#
+# a_title = "goldfinger"
+# puts movie_listing(a_title)
+
+
+
+=begin
+Classes
+
+
+class Movie
+  def initialize(title, rank=0)
+    @title = title.capitalize
+    @rank = rank
+  end
+
+  def thumbs_up
+    @rank += 1
+  end
+
+  def thumbs_down
+    @rank -= 1
+  end
+
+  def to_s
+    "#{@title} has a rank of #{@rank}"
+  end
+
+end
+
+
+movie1 = Movie.new("Rambo", 10)
+movie1.thumbs_up
+puts movie1
+
+movie2 = Movie.new("Back to the Future", 9)
+movie2.thumbs_down
+puts movie2
+
+movie3 = Movie.new("goldfinger")
+puts movie3
+
+
+=end
+
+def say_hello (name, health=100)
+  "I'm #{name.capitalize} with a health of #{health} as of #{time}."
+end
+
+def time
   current_time = Time.new
-  today = current_time.strftime("%A")
+  current_time.strftime("%l:%M:%S")
 end
 
-def movie_listing(title, rank=0)
-  "#{weekday.upcase}: #{title.capitalize} has rank of #{rank}."
-end
 
-puts movie_listing("Rambo", 10)
-
-a_title = "goldfinger"
-puts movie_listing(a_title)
+puts say_hello("larry", 60)
+puts say_hello("curly", 125)
+puts say_hello("moe")
+puts say_hello("shemp", 90)
