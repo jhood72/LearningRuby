@@ -89,8 +89,8 @@
 
 
 
-=begin
-Classes
+
+
 
 
 class Movie
@@ -106,6 +106,17 @@ class Movie
   def thumbs_down
     @rank -= 1
   end
+
+
+  attr_reader :title, :rank
+
+  def title=(new_title)
+    @title = new_title
+  end
+
+#  def title
+#    @title
+#  end
 
   def to_s
     "#{@title} has a rank of #{@rank}"
@@ -123,22 +134,21 @@ movie2.thumbs_down
 puts movie2
 
 movie3 = Movie.new("goldfinger")
-puts movie3
+puts movie3.title
+puts movie3.rank
 
-
-=end
-
-def say_hello (name, health=100)
-  "I'm #{name.capitalize} with a health of #{health} as of #{time}."
-end
-
-def time
-  current_time = Time.new
-  current_time.strftime("%l:%M:%S")
-end
-
-
-puts say_hello("larry", 60)
-puts say_hello("curly", 125)
-puts say_hello("moe")
-puts say_hello("shemp", 90)
+# def say_hello (name, health=100)
+#   "I'm #{name.capitalize} with a health of #{health} as of #{time}."
+# end
+#
+# def time
+#   current_time = Time.new
+#   current_time.strftime("%l:%M:%S")
+# end
+#
+#
+#
+# puts say_hello("larry", 60)
+# puts say_hello("curly", 125)
+# puts say_hello("moe")
+# puts say_hello("shemp", 90)
