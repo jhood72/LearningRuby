@@ -94,9 +94,15 @@
 
 
 class Movie
+
+
   def initialize(title, rank=0)
     @title = title.capitalize
     @rank = rank
+  end
+
+  def normalized_rank
+    @rank / 10
   end
 
   def thumbs_up
@@ -107,16 +113,26 @@ class Movie
     @rank -= 1
   end
 
+  # =begin
+  # def title
+  #   @title
+  # end
+  # (above method not necessary if you use the attribute reader below)
+  # =end
 
-  attr_reader :title, :rank
+  attr_reader :rank #this read the variable from outside the class
+  #attr_writer :title #this writes the variable
 
-  def title=(new_title)
-    @title = new_title
-  end
+  attr_accessor  :title  #this does read AND write
 
 #  def title
 #    @title
-#  end
+#  end (attr_reader replaces this piece of code!!!)
+
+# def title=(new_title)
+#   @title = new_title
+# end (attr_writer replaces this piece of code!!!)
+
 
   def to_s
     "#{@title} has a rank of #{@rank}"
@@ -124,18 +140,44 @@ class Movie
 
 end
 
-
-movie1 = Movie.new("Rambo", 10)
-movie1.thumbs_up
-puts movie1
-
-movie2 = Movie.new("Back to the Future", 9)
-movie2.thumbs_down
-puts movie2
-
+movie1 = Movie.new("goonies", 10)
+movie2 = Movie.new("ghostbusters", 9)
 movie3 = Movie.new("goldfinger")
-puts movie3.title
-puts movie3.rank
+movies = [movie1, movie2, movie3]
+
+movies.each do |movie|
+  movie.thumbs_up
+  puts movie
+end
+
+seats = []
+seats = %w(kermit fozzie gonzo)
+seats[0] = 'kermit'
+seats[1] = 'fozzie'
+seats[3] = 'gonzo'
+seats[4] = 'missy piggy'
+seats = []
+seats.push('kermit')
+seats.push('fozzie')
+seats.push('gonzo')
+seats << 'missy piggy' #appends missy piggy to the end of array
+seats.pop #removes last element in the array, in this case miss piggy
+
+
+
+# movie1 = Movie.new("Rambo", 10)
+# movie1.thumbs_up
+# movie1.title = "Gooneys!"
+# puts movie1
+#
+# movie2 = Movie.new("Back to the Future", 9)
+# movie2.thumbs_down
+# puts movie2
+#
+# movie3 = Movie.new("goldfinger")
+# puts movie3.title
+# puts movie3.rank
+#
 
 # def say_hello (name, health=100)
 #   "I'm #{name.capitalize} with a health of #{health} as of #{time}."
