@@ -28,6 +28,16 @@ class Player
 
 end
 
+
+
+class Game
+  def initialize(title)
+    @title = title
+  end
+  attr_reader :title
+
+end
+
 player1 = Player.new("moe")
 player2 = Player.new("larry", 60)
 player3 = Player.new("curly", 125)
