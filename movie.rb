@@ -1,22 +1,34 @@
 class Movie
+    attr_accessor :title
+    attr_reader :rank
 
-  attr_accessor :title
-  attr_reader :rank
+    def initialize(title, rank = 0)
+        @title = title.capitalize
+        @rank = rank
+    end
 
-  def initialize(title, rank=0)
-    @title = title.capitalize
-    @rank = rank
-  end
+    def hit?
+        @rank >= 10
+    end
 
-  def thumbs_up
-    @rank += 1
-  end
+    def status
+        hit? ? 'Hit' : 'Flop'
+        #   if hit?
+        #   "Hit"
+        # else
+        #   "Flop"
+        # end
+    end
 
-  def thumbs_down
-    @rank -= 1
-  end
+    def thumbs_up
+        @rank += 1
+    end
 
-  def to_s
-    "#{@title} has a rank of #{@rank}."
-  end
+    def thumbs_down
+        @rank -= 1
+    end
+
+    def to_s
+        "#{@title} has a rank of #{@rank} (#{status})."
+    end
 end
