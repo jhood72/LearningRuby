@@ -1,5 +1,6 @@
 require_relative "player"
 require_relative 'die'
+require_relative 'game_turn'
 class Game
   def initialize(title)
     @title = title
@@ -21,7 +22,7 @@ class Game
     end
 
     @players.each do |player|
-      
+       GameTurn.take_turn(player)
       puts player
     end
 
