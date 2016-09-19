@@ -265,4 +265,5 @@ playlist2.add_movie(movie3)
 
 movie4 = Movie.new("gremlins", 15)
 playlist2.add_movie(movie4)
-playlist2.play
+playlist2.play(3)
+playlist1.print_stats
